@@ -9,6 +9,8 @@ module Bundle
     end
 
     def preinstall(name, no_upgrade: false, verbose: false)
+      return false if ENV["HOMEBREW_BUNDLE_EXCLUDE_VSCODE_EXTENSIONS"]
+
       if !Bundle.vscode_installed? && Bundle.cask_installed?
         puts "Installing visual-studio-code. It is not currently installed." if verbose
         Bundle.system HOMEBREW_BREW_FILE, "install", "--cask", "visual-studio-code", verbose: verbose

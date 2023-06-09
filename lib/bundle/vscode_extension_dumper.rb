@@ -9,6 +9,8 @@ module Bundle
     end
 
     def extensions
+      return [] if ENV["HOMEBREW_BUNDLE_EXCLUDE_VSCODE_EXTENSIONS"]
+
       @extensions ||= if Bundle.vscode_installed?
         `code --list-extensions 2>/dev/null`.split("\n")
       else

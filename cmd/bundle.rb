@@ -73,7 +73,9 @@ module Homebrew
       switch "--whalebrew",
              description: "`list` Whalebrew dependencies."
       switch "--vscode",
-             description: "`list` VSCode extensions."
+             description: "`list` VSCode extensions." \
+                          "This behaviour can be disabled with the " \
+                          "`HOMEBREW_BUNDLE_EXCLUDE_VSCODE_EXTENSIONS=1` environment variable."
       switch "--describe",
              description: "`dump` adds a description comment above each line, unless the " \
                           "dependency does not have a description."
